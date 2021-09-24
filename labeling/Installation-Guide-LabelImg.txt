@@ -1,0 +1,26 @@
+Install Anaconda Navigator from:
+(1) https://www.anaconda.com/products/individual
+(2) https://repo.anaconda.com/archive/
+
+############### LabelImg Application Download ############### 
+Launch Anaconda Navigator
+Download zip from https://github.com/tzutalin/labelImg
+Unzip the folder
+
+############### Creating New Environment ############### 
+
+conda create -n test python=3.6.10
+conda env list
+activate test
+
+############### Installation ############### 
+cd "FOLDER WITH APPLICATION"
+Find Folder with requiremens in: "labelImg-master\requirements"
+pip install pyqt5==5.10.1
+pip install lxml==4.6.3
+pyrcc5 -o libs/resources.py resources.qrc
+python labelImg.py
+
+data/predefined_classes/txt delete all classes
+
+

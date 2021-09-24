@@ -1,0 +1,9 @@
+0. Abstract
+1. Introduction - Brief information about the research area, existing problems, contribution
+2. Related Work - YoloV5, CNN
+3. Methodology - Diagram, detailed explanation
+4. Results - Detailes of experiments and Experimental results
+5. Conclusion - same as abstract paraphrase 
+6. References
+
+
