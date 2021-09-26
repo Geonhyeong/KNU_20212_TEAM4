@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>이동우_labeling</folder>
+	<filename>20210922_235358.jpg</filename>
+	<path>C:\Users\User\Documents\labeling\labeling\이동우_labeling\20210922_235358.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3024</width>
+		<height>4032</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>disabled_parking</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2253</xmin>
+			<ymin>1689</ymin>
+			<xmax>2484</xmax>
+			<ymax>1876</ymax>
+		</bndbox>
+	</object>
+</annotation>
