@@ -5,7 +5,7 @@ import sendMSG
 if __name__ == '__main__':
 
     #전송받은 사진
-    source = 'car/idkcar.jpg'
+    source = 'car/ccar.jpg'
 
     #장애인차량 판별
     if mydetect.detect(source):
@@ -14,6 +14,6 @@ if __name__ == '__main__':
         print("장애인차량 아님")
         #경찰한테 메세지 보내기
         gps = '위치정보'
-        # sendMSG.sendMessage(gps) <- 이거 돈나갑니다 신중하게 쓰세요
+        # sendMSG.sendMessage(source) <- 이거 돈나갑니다 신중하게 쓰세요
        
 
