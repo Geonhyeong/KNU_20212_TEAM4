@@ -5,7 +5,7 @@ import sendMSG
 if __name__ == '__main__':
 
     #전송받은 사진
-    source = 'car/car1.png'
+    source = 'car/idkcar.jpg'
 
     #장애인차량 판별
     if mydetect.detect(source):
