@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials, db, storage
 
 from PIL import Image
-import io
+import urllib.request
 
 cred = credentials.Certificate('./ServiceAccountKey.json')
 firebase_admin.initialize_app(cred, {
@@ -25,24 +25,31 @@ def getCountFromDB():
 
 
 def getImgFromDB():
-    # snapshot = ref.order_by_key().get()
-    # first_item = snapshot.popitem(last=True)
-    # img_info = first_item[1]
-    # img_data = img_info.get('image')
-    # img_size_x = img_info.get('size_x')
-    # img_size_y = img_info.get('size_y')
+    # read from Realtime Database
+    snapshot = ref.order_by_key().get()
+    first_item = snapshot.popitem(last=True)
+    img_info = first_item[1]
+    img_url = img_info.get('url')
+    img_size_x = img_info.get('size_x')
+    img_size_y = img_info.get('size_y')
+#    print(img_url)
 
-    # image = Image.frombytes('RGBA', (img_size_x, img_size_y), img_data, 'raw')
-    # image.show()
-    blob = bucket.blob()
-    blob.download_to_filename('car')
+    # download image from Storage using URL
+    urllib.request.urlretrieve(img_url, 'car/download.jpg')
+
+    # Resize image to 416X416
+    resize('car/download.jpg', 416)
+
+    # Show Image
+    image = Image.open('car/download.jpg')
+    image.show()
 
 
+# Upload image to storage and realtime db for testing
 def UploadImage(file):
     blob = bucket.blob(file)
-    # upload file
     blob.upload_from_filename(filename=file, content_type='image/jpeg')
-    # print(blob.public_url)
+    blob.make_public()
 
     ref = db.reference('Image/202111241211')
     ref.set({'url': blob.public_url,
@@ -53,9 +60,7 @@ if __name__ == '__main__':
     print("Hello World")
     # resize('car/white_car.jpg', 416)
 
-    path = 'car/red_Car.jpg'
-
-    UploadImage(path)
+    UploadImage('car/download.jpg')
 
     # getImgFromDB()
     # getCountFromDB()
