@@ -1,5 +1,6 @@
 import mydetect
-#import sendMSG
+# pip install coolsms_python_sdk
+import sendMSG
 
 
 if __name__ == '__main__':
