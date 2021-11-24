@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "453464700014",
+    "firebase_url": "https://disabled-parking-a5c56-default-rtdb.firebaseio.com",
+    "project_id": "disabled-parking-a5c56",
+    "storage_bucket": "disabled-parking-a5c56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453464700014:android:7a41ab1b09b090f722a27f",
+        "android_client_info": {
+          "package_name": "com.example.disabledparking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453464700014-e4c9r0khdceh57eum08mvs9quregp2jt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDza0wq9nG2o2QPLXp5yvNLlIQpB1BEjB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453464700014-e4c9r0khdceh57eum08mvs9quregp2jt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
