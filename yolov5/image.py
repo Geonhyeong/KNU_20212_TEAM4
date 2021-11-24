@@ -56,11 +56,11 @@ def UploadImage(file):
             'size_x': 3840, 'size_y': 4160})
 
 
-if __name__ == '__main__':
-    print("Hello World")
-    # resize('car/white_car.jpg', 416)
+# if __name__ == '__main__':
+#     print("Hello World")
+#     # resize('car/white_car.jpg', 416)
 
-    UploadImage('car/download.jpg')
+#     UploadImage('car/download.jpg')
 
-    # getImgFromDB()
-    # getCountFromDB()
+#     # getImgFromDB()
+#     # getCountFromDB()
