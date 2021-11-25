@@ -36,7 +36,7 @@ def getImgFromDB():
     first_item = snapshot.popitem(last=True)
     img_info = first_item[1]
     img_url = img_info.get('url')
-    #img_location = img_info.get('location')
+    img_location = img_info.get('location')
 #    print(img_url)
 
     # download image from Storage using URL
@@ -48,6 +48,8 @@ def getImgFromDB():
     # Show Image
     # image = Image.open('car/download.jpg')
     # image.show()
+
+    return img_location
 
 
 # Upload image to storage and realtime db for testing
