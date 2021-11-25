@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "558015354307",
+    "firebase_url": "https://jongproject-c30b3-default-rtdb.firebaseio.com",
+    "project_id": "jongproject-c30b3",
+    "storage_bucket": "jongproject-c30b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558015354307:android:34b1ca889a52a284b35976",
+        "android_client_info": {
+          "package_name": "com.example.disabledparking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558015354307-4v5tqm93c3u1qb20v766gl4p58aol2hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfYLT9Rr6OSiduGHFvqpBaog9sC-ZBYYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558015354307-4v5tqm93c3u1qb20v766gl4p58aol2hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

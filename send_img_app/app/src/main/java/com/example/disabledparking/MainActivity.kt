@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         imageUploadButton.setOnClickListener {
             when {
                 ContextCompat.checkSelfPermission(
