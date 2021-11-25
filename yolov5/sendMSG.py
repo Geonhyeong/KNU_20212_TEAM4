@@ -13,8 +13,8 @@ def sendMessage(imgsrc, location):
     # 4 params(to, from, type, text) are mandatory. must be filled
     params = dict()
     params['type'] = 'mms'  # Message type ( sms, lms, mms, ata )
-    params['to'] = '01087602581'  # Recipients Number '01000000000,01000000001'
-    params['from'] = '01030994264'  # Sender number
+    params['to'] = '01012345678'  # Recipients Number '01000000000,01000000001'
+    params['from'] = '01000000000'  # Sender number
     params['text'] = '<장애인주차구역 불법주차 발생>\n\n[위치] : ' + location  # Message 바꿔줘야함
     params['image'] = imgsrc
     cool = Message(api_key, api_secret)
