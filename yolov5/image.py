@@ -2,7 +2,7 @@
 import firebase_admin
 from firebase_admin import credentials, db, storage
 
-from PIL import Image
+from PIL import Image, ImageOps
 import urllib.request
 
 cred = credentials.Certificate('./ServiceAccountKey.json')
@@ -20,6 +20,12 @@ def resize(path, imgSize):
     img_resize.save(path)
 
 
+def rotate(path):
+    img = Image.open(path)
+    rotate_img = img.rotate(90)
+    rotate_img.save(path)
+
+
 def getCountFromDB():
     return len(ref.get())
 
@@ -30,8 +36,7 @@ def getImgFromDB():
     first_item = snapshot.popitem(last=True)
     img_info = first_item[1]
     img_url = img_info.get('url')
-    img_size_x = img_info.get('size_x')
-    img_size_y = img_info.get('size_y')
+    #img_location = img_info.get('location')
 #    print(img_url)
 
     # download image from Storage using URL
@@ -41,8 +46,8 @@ def getImgFromDB():
     resize('car/download.jpg', 416)
 
     # Show Image
-    image = Image.open('car/download.jpg')
-    image.show()
+    # image = Image.open('car/download.jpg')
+    # image.show()
 
 
 # Upload image to storage and realtime db for testing
@@ -56,11 +61,6 @@ def UploadImage(file):
             'size_x': 3840, 'size_y': 4160})
 
 
-# if __name__ == '__main__':
-#     print("Hello World")
-#     # resize('car/white_car.jpg', 416)
-
-#     UploadImage('car/download.jpg')
-
-#     # getImgFromDB()
-#     # getCountFromDB()
+def showImage(path):
+    img = Image.open(path)
+    img.show()

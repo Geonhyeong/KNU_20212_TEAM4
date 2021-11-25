@@ -11,10 +11,8 @@ from utils.general import check_img_size, check_requirements, non_max_suppressio
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, time_synchronized
 
-
-
 WEIGHTS = 'best_twoclasses.pt'
-IMG_SIZE = 640
+IMG_SIZE = 416
 DEVICE = ''
 AUGMENT = False
 CONF_THRES = 0.25
@@ -44,7 +42,8 @@ def detect(source_in):
 
     # Run inference
     if device.type != 'cpu':
-        model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))  # run once
+        model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(
+            next(model.parameters())))  # run once
 
     # Load image
     img0 = cv2.imread(source)  # BGR
@@ -69,21 +68,21 @@ def detect(source_in):
     print('pred shape:', pred.shape)
 
     # Apply NMS
-    pred = non_max_suppression(pred, CONF_THRES, IOU_THRES, classes=CLASSES, agnostic=AGNOSTIC_NMS)
+    pred = non_max_suppression(
+        pred, CONF_THRES, IOU_THRES, classes=CLASSES, agnostic=AGNOSTIC_NMS)
 
     # Process detections
     det = pred[0]
     print('det shape:', det.shape)
     print(det)
 
-
-
     s = ''
     s += '%gx%g ' % img.shape[2:]  # print string
 
     if len(det):
         # Rescale boxes from img_size to img0 size
-        det[:, :4] = scale_coords(img.shape[2:], det[:, :4], img0.shape).round()
+        det[:, :4] = scale_coords(
+            img.shape[2:], det[:, :4], img0.shape).round()
 
         # Print results
         for c in det[:, -1].unique():
@@ -93,27 +92,28 @@ def detect(source_in):
         # Write results
         for *xyxy, conf, cls in reversed(det):
             label = f'{names[int(cls)]} {conf:.2f}'
-            plot_one_box(xyxy, img0, label=label, color=colors[int(cls)], line_thickness=3)
+            plot_one_box(xyxy, img0, label=label,
+                         color=colors[int(cls)], line_thickness=3)
 
         print(f'Inferencing and Processing Done. ({time.time() - t0:.3f}s)')
 
     # Stream results
     print(s)
-    cv2.imshow(source, img0)
-    cv2.waitKey(0)  # 1 millisecond
+    # cv2.imshow(source, img0)
+    # cv2.waitKey(0)  # 1 millisecond
 
-    #conf값 판별
-    detSize=det.shape
-    i=0
-    while i<detSize[0]:
+    # conf값 판별
+    detSize = det.shape
+    i = 0
+    while i < detSize[0]:
         if(det[i][5] == 1):
-            if det[i][5] > 0.5:         #conf 값 0.5 이상이면 장애인
+            if det[i][4] > 0.5:  # conf 값 0.5 이상이면 장애인
                 return True
-        i+=1
+        i += 1
     return False
 
 
 if __name__ == '__main__':
     check_requirements(exclude=('pycocotools', 'thop'))
     with torch.no_grad():
-            detect()
+        detect()
