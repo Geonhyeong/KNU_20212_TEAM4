@@ -25,8 +25,7 @@ if __name__ == '__main__':
             else:
                 print("Illegal parking detected!!!")
                 # 경찰한테 메세지 보내기
-                # gps = '위치정보'
-                sendMSG.sendMessage(source, location)  # <- 이거 돈나갑니다 신중하게 쓰세요
+                # sendMSG.sendMessage(source, location)  # <- 이거 돈나갑니다 신중하게 쓰세요
 
             # show image
             image.showImage(source)
